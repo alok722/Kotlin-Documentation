@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kotlin</title>
+  <link rel="shortcut icon" href="kotlin.ico" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+</head>
+<body>
+	
+<nav id="navbar">
+  <header> Kotlin Documentation</header>
+  <ul> 
+    <a class="nav-link" href="#Introduction" rel="internal"><li>Introduction</li></a>
+    <a class="nav-link" href="#Why_switch_to_Kotlin" rel="internal"><li>Why switch to Kotlin</li></a>
+    <a class="nav-link" href="#kotlin_and_Java" rel="internal"><li>Java Vs Kotlin</li></a>
+    <a class="nav-link" href="#Hello_world" rel="internal"><li>Hello world</li></a>
+    <a class="nav-link" href="#comments_in_kotlin" rel="internal"><li>Comments in Kotlin</li></a>
+    <a class="nav-link" href="#Declaring_variables" rel="internal"><li>Declaring variables</li></a>
+    <a class="nav-link" href="#Variable_scope" rel="internal"><li>Variable scope & Naming</li></a>
+    <a class="nav-link" href="#data_types" rel="internal"><li>Data Types</li></a>
+    <a class="nav-link" href="#kotlin_basic" rel="internal"><li>Kotlin basic</li></a>
+    <a class="nav-link" href="#string_interpolation" rel="internal"><li>String Interpolation</li></a>
+    <a class="nav-link" href="#ranges" rel="internal"><li>Ranges</li></a>
+    <a class="nav-link" href="#if...else_statement" rel="internal"><li>If...else as Expression</li></a>
+    <a class="nav-link" href="#when_expression" rel="internal"><li>When Expression</li></a>
+    <a class="nav-link" href="#for_loop" rel="internal"><li>For Loop</li></a>
+    <a class="nav-link" href="#while_loop" rel="internal"><li>While Loop</li></a>
+    <a class="nav-link" href="#do_while_loop" rel="internal"><li>Do While Loop</li></a>
+    <a class="nav-link" href="#break" rel="internal"><li>Break Keyword</li></a>
+    <a class="nav-link" href="#continue" rel="internal"><li>Continue Keyword</li></a>
+    <a class="nav-link" href="#function" rel="internal"><li>Function Basics</li></a>
+    <a class="nav-link" href="#named_parameter" rel="internal"><li>Named Parameters</li></a>
+    <a class="nav-link" href="#extension_func" rel="internal"><li>Extension Function</li></a>
+    <a class="nav-link" href="#infix_func" rel="internal"><li>Infix Function</li></a>
+    <a class="nav-link" href="#tailrec_func" rel="internal"><li>TailRec Function</li></a>
+    <a class="nav-link" href="#inheritance" rel="internal"><li>Inheritance</li></a>
+    <a class="nav-link" href="#array" rel="internal"><li>Array</li></a>
+    <a class="nav-link" href="#interface" rel="internal"><li>Interface</li></a>
+    <a class="nav-link" href="#Reference" rel="internal"><li>Reference</li></a>
+  </ul>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>
+    <article>  
+      <p>Kotlin is a compiled, statically typed language, which might provide some initial hurdles for people who are used to the interpreted, dynamically typed Python. This document aims to explain a substantial portion of Kotlin's syntax and concepts in terms of how they compare to corresponding concepts in Python..</p>
+
+<p>Kotlin can be compiled for several different platforms. In this document, we assume that the target platform is the Java virtual machine, which grants some extra capabilities - in particular, your code will be compiled to Java bytecode and will therefore be interoperable with the large ecosystem of Java libraries.</p>
+
+<p>Even if you don't know Python, this document should hopefully be a useful introduction to Kotlin, in particular if you are used to other dynamically typed languages. However, if you're coming from a Java background, you're probably better off diving directly into the excellent official docs (from which this doc has drawn a lot of inspiration). To some extent, you can try to write Java code and look stuff up whenever what you're trying to do doesn't work - and some IDEs can even automatically convert Java code to Kotlin.</p>
+      </artice>
+    </section>
+  <section class="main-section" id="Why_switch_to_Kotlin">
+    <header>Why switch to Kotlin</header>
+    <article>
+      <p>Reasons can be:</p>
+
+      <li>Java is not a modern language.</li>
+      <li>Android only supports a subset of Java 8 features. In a way, Android developers are not able to reap full benefits of Java. In case they require making use of Java, then they will have to stick to Java 7.</li>
+<li>Java comes with some well-documented language issues like endless try-catch blocks, null-unsafety, NullPointerExceptions and lack of extendability.</li>
+<li>Java is still a procedural language although it is starting to add lambda expressions and functional interfaces recently.</li>
+<li>The syntax of Java is very complex and writing longer code can always be prone to more errors and bugs.</li>
+<li>Java can create issues with Android API design.</li>
+<li>Do you still need to remember most of the code while you code in Java? It can be creepy and messy sometimes!</li>
+      </artice>
+    </section>
+  <section class="main-section" id="kotlin_and_Java">
+    <header>Java Vs Kotlin</header>
+    <article>
+      <div class="imgbox">
+    <img class="center-fit" src='https://www.educba.com/academy/wp-content/uploads/2018/07/Java-Vs-Kotlin.jpg'>
+</div>
+    </article>
+    </section>
+  <section class="main-section" id="Hello_world">
+    <header>Hello world</header>
+    <article> 
+To get started with writing Kotlin, open the editor and write your first "Hello world" Kotlin code:
+<code>fun main(args: Array<String>) {
+    print("Hello World")
+}
+</code>
+    </article>
+    </section>
+  <section class="main-section" id="comments_in_kotlin">
+    <header>Comments In Kotlin</header>
+    <article>
+      <code>/*
+* This is comment line 1
+*
+* This is comment line 2
+*
+* This is main function. Entry point of the application. 
+* */
+
+fun main(args: Array<String>) {     // This is inline comment ...
+    print("Hello World")
+}
+      </code>
+    </article>
+   
+    </section>
+  <section class="main-section" id="Declaring_variables">
+    <header>Declaring variables</header>
+    <article>
+<code>/*
+* This is main function. Entry point of the application.
+* */
+fun main(args: Array<String>) {
+
+    var myNumber = 10       // Int
+    var myDecimal = 1.0     // Float
+    var isActive = true     // Boolean
+
+    var myString: String    // Mutable String
+    myString = "Hello World"
+    myString = "Another World"
+
+    val myAnotherString = "My constant string value"    // Immutable String
+//    myAnotherString = "some value"  // NOT ALLOWED, since it is immutable
+
+    print(myNumber)
+}
+  
+</code>
+    </article>
+    </section>
+  <section class="main-section" id="Variable_scope">
+    <header>Variable scope & Naming</header>
+    <article>
+     <p> A variable only exists inside the scope (curly-brace-enclosed block of code; more on that later) in which it has been declared - so a variable that's declared inside a loop only exists in that loop; you can't check its final value after the loop. Variables can be redeclared inside nested scopes - so if there's a parameter <b>x</b> to a function and you create a loop and declare an <b>x</b> inside that loop, the <b>x</b> inside the loop is a different variable than the parameter <b>x</b>.</p>
+
+<p>Variable names should use <i>lowerCamelCase</i> instead of <i>snake_case</i>.</p>
+<p>In general, identifiers may consist of letters, digits, and underscores, and may not begin with a digit. However, if you are writing code that e.g. autogenerates JSON based on identifiers and you want the JSON key to be a string that does not conform to these rules or that collides with a keyword, you can enclose it in backticks: `I can't believe this is not an error!` is a valid identifier.</p>
+    </article>
+    </section>
+  <section class="main-section" id="data_types">
+    <header>Data Types</header>
+    <article> All variables must be initialize at the time of declaration.
+<li>Boolean -- 1 bit</li>
+<li>Byte -- 8 bits</li>
+<li>Char -- 16 bits</li>
+<li>Short -- 16 bits</li>
+<li>Int -- 32 bits</li>
+<li>Long -- 64 bits</li>
+<li>Float -- 32 bits</li>
+<li>Double -- 64 bits</li>
+<br>
+<code>println(7 / 3)            // Prints 2
+println(7 / 3.0)          // Prints 2.3333333333333335
+val x = 3
+println(7 / x)            // Prints 2
+println(7 / x.toDouble()) // Prints 2.3333333333333335</code>
+<br>
+<code>/*
+* Explore Data Types in Kotlin
+* */
+
+fun main(args: Array<String>) {
+
+    var name: String
+    name = "Kevin"
+
+    var age: Int = 10
+    var myAge = 10
+
+    var isAlive: Boolean = true
+    var marks: Float = 97.4F
+    var percentage: Double = 90.78
+    var gender: Char = 'M'
+
+    print(marks)
+}</code>
+    </article>
+    </section>
+  <section class="main-section" id="kotlin_basic">
+    <header>Kotlin Basics</header>
+    <article>
+<code>/*
+* This is main function. Entry point of the application.
+* */
+fun main(args: Array<String>) {
+
+    var personObj = Person()
+    personObj.name = "Steve"
+
+    print("The name of the person is ${personObj.name}")
+}
+
+class Person {
+
+    var name: String = ""
+}</code>
+    </article>
+    </section>
+  <section class="main-section" id="string_interpolation">
+    <header>String Interpolation</header>
+    <article>
+      <b><i>${ }</i></b>
+      <code>/*
+* Explore String Interpolation in Kotlin
+* */
+fun main(args: Array<String>) {
+
+    var rect = Rectangle()
+    rect.length = 5
+    rect.breadth = 3
+
+    print("The length of the rectangle is ${rect.length} and breadth is ${rect.breadth}. The area is ${rect.length * rect.breadth}")
+
+}
+
+class Rectangle {
+
+    var length: Int = 0
+    var breadth: Int = 0
+}</code>
+    </article>
+    </section>
+    <section class="main-section" id="ranges">
+      <header>Ranges</header>
+        <code>/*
+* Explore Ranges
+* */
+fun main(args: Array<String>) {
+
+    var r1 = 1..5
+    // This range contains number 1, 2, 3, 4, 5
+
+    val r2 = 5 downTo 1
+    // This range contains number 5, 4, 3, 2, 1
+
+    val r3 = 5 downTo 1 step 2
+    // This range contains number 5, 3, 1
+
+    val r4 = 'a'..'z'
+    // This range contains the values from "a", "b", "c" . . . "z"
+
+    var isPresent = 'c' in r4
+
+    var countDown = 10.downTo(1)
+    // This range contains number 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+
+    var moveUp = 1.rangeTo(10)
+    // This range contains number 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    
+}</code>
+    </section>
+  <section class="main-section" id="if...else_statement">
+    <header>If...else As Expression</header>
+    <article>
+      <code>/*
+* IF as Expression
+* */
+fun main(args: Array<String>) {
+
+    val a = 2
+
+    val b = 5
+
+    var maxValue: Int = if (a > b) {
+                            print("a is greater")
+                            a
+                        } else {
+                            print("b is greater")
+                            b
+                        }
+
+    println(maxValue)
+}</code>
+    </article>
+    </section>
+  <section class="main-section" id="when_expression">
+    <header>When Expression</header>
+    <article>
+It is the replacement of classical Switch case:
+
+<code>/*
+* WHEN as Expression
+* */
+fun main(args: Array<String>) {
+
+    val x = 100
+
+    val str: String  = when (x) {
+
+        1 -> "x is 1"
+        2 -> "x is 2"
+        else -> {
+            "x value is unknown"
+            "x is an alien"
+        }
+    }
+
+    println(str)
+}</code>
+    </article>
+    </section>
+  <section class="main-section" id="for_loop">
+    <header>For Loop</header>
+    <article> 
+<code>/*
+* FOR Loop
+* */
+fun main(args: Array<String>) {
+
+    for (i in 1..10) {
+
+        if (i % 2 == 0) {
+            println(i)
+        }
+    }
+
+    println()
+
+    for (i in 10 downTo 0) {
+
+        if (i % 2 == 0) {
+            println(i)
+        }
+    }
+}</code>
+    </article>
+    </section>
+    <section class="main-section" id="while_loop">
+      <header>While Loop</header>
+      <article>
+        <code>/*
+* WHILE Loop
+* */
+fun main(args: Array<String>) {
+
+    var i = 0
+    while (i <= 10) {
+        if (i % 2 == 0) {
+            println(i)
+        }
+        i++
+    }
+
+    println()
+
+    var j = 10
+    while (j >= 0) {
+        if (j % 2 == 0) {
+            println(j)
+        }
+        j--
+    }
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="do_while_loop">
+      <header>Do While Loop</header>
+      <article>
+        <code>/*
+* DO WHILE Loop
+* */
+fun main(args: Array<String>) {
+
+    var i = 0
+
+    do {
+        if (i % 2 == 0) {
+            println(i)
+        }
+        i++
+    } while (i <= 10)
+
+    println()
+
+    var j = 10
+
+    do {
+        if (j % 2 == 0) {
+            println(j)
+        }
+        j--
+    } while (j >= 0)
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="break">
+      <header>Break</header>
+      <article>
+        <code>/*
+*   BREAK Keyword and Labelled FOR Loop
+* */
+fun main(args: Array<String>) {
+
+    for (i in 0..4) {
+        println(i)
+
+        if (i == 2) {
+            break
+        }
+    }
+
+    println() 
+
+    myLoop@ for (i in 1..3) {
+        for (j in 1..3) {
+            println("$i  $j")
+            if (i == 2 && j == 2)
+                break@myLoop
+        }
+    }
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="continue">
+      <header>Continue Keyword</header>
+      <article>
+        <code>/*
+*   BREAK Keyword and Labelled FOR Loop
+* */
+fun main(args: Array<String>) {
+
+    for (i in 0..4) {
+        println(i)
+
+        if (i == 2) {
+            break
+        }
+    }
+
+    println() 
+
+    myLoop@ for (i in 1..3) {
+        for (j in 1..3) {
+            println("$i  $j")
+            if (i == 2 && j == 2)
+                break@myLoop
+        }
+    }
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="function">
+      <header>Function Basic</header>
+      <article>Functions are declared with the fun keyword. For the parameters, you must declare not only their names, but also their types, and you must declare the type of the value the function is intending to return. The body of the function is usually a block, which is enclosed in curly braces:</article>
+      <code>fun happyBirthday(name: String, age: Int): String {
+    return "Happy ${age}th birthday, $name!"
+}</code>
+Here, name must be a string, age must be an integer, and the function must return a string. However, you can also make a oneliner function, where the body simply is the expression whose result is to be returned. In that case, the return type is inferred, and an equals sign is used to indicate that it's a oneliner:
+<code>fun square(number: Int) = number * number</code>
+(Note that there is no ** operator; non-square exponentiation should be done via Math.pow().)
+
+Function names should use lowerCamelCase instead of snake_case.
+    </section>
+    <section class="main-section" id="named_parameter">
+      <header>Named Parameter</header>
+      <article>
+        <code>/*
+*   Named Parameters
+* */
+fun main(args: Array<String>) {
+
+    var result = findTheVolume(breadth = 2, length = 3)
+    print(result)
+}
+
+fun findTheVolume(length: Int, breadth: Int, height: Int = 10): Int {
+
+    return length * breadth * height
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="extension_func">
+      <header>Extension Function</header>
+      <article>
+        <code>/*
+*   Extension Functions: EXAMPLE ONE
+* */
+fun main(args: Array<String>) {
+
+    var student = Studentt()
+    println("Pass status: " + student.hasPassed(57))
+
+    println("Scholarship Status: " + student.isScholar(57))
+}
+
+fun Studentt.isScholar(marks: Int): Boolean {
+    return marks > 95
+}
+
+class Studentt {         // OUR OWN CLASS
+
+    fun hasPassed(marks: Int): Boolean {
+        return marks > 40
+    }
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="infix_func">
+      <header>Infix Function</header>
+      <article>
+        <code>/*
+*   INFIX FUNCTIONS
+* */
+fun main(args: Array<String>) {
+
+    val x: Int = 6
+    val y: Int = 10
+
+    val greaterVal = x findGreaterValue y   // x.findGreaterValue(y)
+
+    println(greaterVal)
+}
+
+infix fun Int.findGreaterValue(other: Int): Int {       // INFIX and Extension Func
+
+    if (this > other)
+        return this
+    else
+        return other
+}
+
+/*
+*       1. All INFIX Functions are Extension functions
+*            But all Extension functions are not INFIX
+*       2. INFIX Functions just have ONE PARAMETER
+* */</code>
+      </article>
+    </section>
+    <section class="main-section" id="tailrec_func">
+      <header>Tailrec Function</header>
+      <article>
+        <code>import java.math.BigInteger
+
+/*
+*   Tailrec Function : Recursive Functions
+*       -> Prevents Stackoverflow Exception
+*
+*   Fibonacci Series
+*       0  1  1  2  3  5  8  13  21 ......
+* */
+fun main(args: Array<String>) {
+
+    println(getFibonacciNumber(10000, BigInteger("1"), BigInteger("0")))
+}
+
+tailrec fun getFibonacciNumber(n: Int, a: BigInteger, b: BigInteger): BigInteger {
+
+    if (n == 0)
+        return  b
+    else
+        return getFibonacciNumber(n - 1, a + b, a)
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="inheritance">
+      <header>Inheritance</header>
+      <code>/*
+*   Inheritance
+* */
+fun main(args: Array<String>) {
+
+    var dog = Dog()
+    dog.bread = "labra"
+    dog.color = "black"
+    dog.bark()
+    dog.eat()
+
+    var cat = Cat()
+    cat.age = 7
+    cat.color = "brown"
+    cat.meow()
+    cat.eat()
+
+    var animal = Animal()
+    animal.color = "white"
+    animal.eat()
+}
+
+open class Animal {         // Super class / Parent class /  Base class
+
+    var color: String = ""
+
+    fun eat() {
+        println("Eat")
+    }
+}
+
+class Dog : Animal() {      // Sub class / Child class / Derived class
+
+    var bread: String = ""
+
+    fun bark() {
+        println("Bark")
+    }
+}
+
+class Cat : Animal() {      // Sub class / Child class / Derived class
+
+    var age: Int = -1
+
+    fun meow() {
+        println("Meow")
+    }
+}</code>
+    </section>
+    <section class="main-section" id="array">
+      <header>Array</header>
+      <article>
+        <code>/*
+*   1. Arrays
+* */
+fun main(args: Array<String>) {
+
+    // Elements :   32  0   0   54  0
+    // Index    :   0   1   2   3   4
+
+    var myArray = Array<Int>(5) { 0 }   // Mutable. Fixed Size.
+    myArray[0] = 32
+    myArray[3] = 54
+    myArray[1] = 11
+
+    for (element in myArray) {              // Using individual elements (Objects)
+        println(element)
+    }
+
+    println()
+
+    for (index in 0..myArray.size - 1) {
+        println(myArray[index])
+    }
+}</code>
+      </article>
+    </section>
+    <section class="main-section" id="interface">
+      <header>Interface</header>
+      <article>
+        <code>/*
+*   INTERFACE
+* */
+fun main(args: Array<String>) {
+
+    var myButton = MyButton()
+    myButton.onTouch()
+    myButton.onClick()
+}
+
+interface MyInterfaceListener {     // You cannot create the instance of interface
+
+    fun onTouch()                   // Methods in interface are abstract by default
+
+    fun onClick() {                 // Normal methods are public and open by default but NOT FINAL
+        println("MyInterfaceListener: onClick")
+    }
+}
+
+interface MySecondInterface {       // You cannot create the instance of interface
+
+    fun onTouch() {                 // Normal Method
+        println("MySecondInterface: onTouch")
+    }
+
+    fun onClick() {                 // Normal methods are public and open by default but NOT FINAL
+        println("MySecondInterface: onClick")
+    }
+
+}
+
+class MyButton: MyInterfaceListener, MySecondInterface {
+
+    override fun onTouch() {
+        super<MyInterfaceListener>.onClick()
+        super<MySecondInterface>.onClick()
+    }
+
+    override fun onClick() {
+        super.onTouch()
+    }
+}</code>
+      </article>
+    </section>
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <li><a href="https://github.com/smartherd/KotlinTutorial" target="_blank">GitHub</a></li>
+      <li><a href="https://kotlinlang.org/" target="_blank">Kotlin Documentation</a></li>
+      <li><a href="https://www.youtube.com/watch?v=VEqhzCFmEQI&list=PLlxmoA0rQ-LwgK1JsnMsakYNACYGa1cjR" target="_blank">YouTube Channel</a></li>
+      <li><a href="https://www.konstantinfo.com/blog/kotlin-vs-java/" target="_blank">Why Kotlin?</a></li>
+
+    </article>
+    </section>
+    <section class="main-section">
+      <header>Know Creator</header>
+      <article>
+        <li><a href="https://www.linkedin.com/in/alok-r-465212100/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/alok722" target="_blank">GitHub</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100010071970453" target="_blank">Facebook</a></li>
+        
+      </article>
+    </section>
+</main>
+</body>
+</html>
